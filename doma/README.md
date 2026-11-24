@@ -21,9 +21,9 @@ Každý režim má vlastní notebook a vlastní výstup. Model je ve všech tře
 
 ## Notebooky
 
-- [01 · Myš – obraz](01_mys_obraz_baseline.ipynb)
-- [02 · Myš – text](02_mys_text_baseline.ipynb)
-- [03 · Myš – obraz + text](03_mys_obraz_text_baseline.ipynb)
+- [01 · Myš – obraz](https://colab.research.google.com/github/artmisanovak-prog/embeddings/blob/main/doma/01_mys_obraz_baseline.ipynb)
+- [02 · Myš – text](https://colab.research.google.com/github/artmisanovak-prog/embeddings/blob/main/doma/02_mys_text_baseline.ipynb)
+- [03 · Myš – obraz + text](https://colab.research.google.com/github/artmisanovak-prog/embeddings/blob/main/doma/03_mys_obraz_text_baseline.ipynb)
 
 Otevři notebook přes Google Colab: na stránce notebooku zvol **Open in Colab** nebo stáhni soubor a nahraj jej do Colabu. V každém notebooku spusť buňky postupně shora dolů.
 
