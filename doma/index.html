@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17191d">
+<title>Semantic Gap · Embedding Explorer</title>
+<style>
+:root{color-scheme:dark;--bg:#111318;--panel:#1b1f27;--panel2:#222833;--line:#343b48;--text:#edf0f5;--muted:#a5adbb;--accent:#c5a6ff;--blue:#8bbcff;--green:#9ed6b0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:auto;padding:28px 18px 64px}
+header{padding:30px 0 24px;border-bottom:1px solid var(--line)}
+.kicker{font-size:.76rem;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(2rem,6vw,4rem);line-height:1.03;margin:12px 0}
+h2{font-size:1.35rem;margin:0 0 14px}
+h3{font-size:1rem;margin:0 0 8px}
+p{color:var(--muted);margin:.5rem 0 1rem}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{border:1px solid var(--line);border-radius:99px;padding:5px 11px;color:var(--muted);font-size:.82rem}
+.pill.active{border-color:#7c69a8;color:#e4d8ff;background:#33284b}
+section{margin:28px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card p{font-size:.92rem}
+.tag{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.mode{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.mode:last-child{border:0}
+.status{font-size:.78rem;color:var(--muted)}
+.status.done{color:var(--green)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.link{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:var(--panel2)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{color:var(--muted);font-weight:500}
+.empty{border:1px dashed #4a5260;border-radius:12px;padding:22px;color:var(--muted);text-align:center}
+small{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-top:20px;margin-top:42px;color:var(--muted);font-size:.85rem}
+#matrix{min-width:280px}
+@media(max-width:560px){.wrap{padding:18px 13px 44px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">Experimental repository · v1</div>
+  <h1>SEMANTIC<br>GAP</h1>
+  <p style="font-size:1.12rem;color:var(--text)">Embedding Explorer · Chceš myš? Slovník mezer</p>
+  <p>Pracovní prostor pro experimentální reprezentace obrazů, textů a jejich společného zpracování.</p>
+  <div class="meta">
+    <span class="pill active">BASELINE · bez MAPY VÝZNAMU</span>
+    <span class="pill">Jazyk vstupů: čeština</span>
+    <span class="pill">Autor: Michaela Nováková</span>
+    <span class="pill">Jeden multimodální model</span>
+  </div>
+</header>
+
+<section>
+  <h2>O experimentu</h2>
+  <div class="card">
+    <p style="color:var(--text)">První fáze vytváří výchozí reprezentace bez autorské MAPY VÝZNAMU. Stejný model zpracovává každý fenomén ve třech oddělených režimech: obraz, text a obraz společně s textem.</p>
+    <p>Smyslem baseline je získat materiál pro pozdější porovnání. V další fázi bude možné zpracovat stejné vstupy s MAPOU VÝZNAMU a sledovat, co se změnilo.</p>
+    <div class="actions">
+      <a class="link" href="README.md">Metodika a návod</a>
+      <a class="link" href="01_mys_obraz_baseline.ipynb">Otevřít první notebook</a>
+      <a class="link" href="https://colab.research.google.com/github/artmisanovak-prog/embeddings/blob/main/doma/01_mys_obraz_baseline.ipynb" target="_blank" rel="noopener">Spustit v Google Colab ↗</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Pilot · Myš</h2>
+  <div class="grid">
+    <div class="card"><div class="tag">Režim 01</div><h3>Obraz</h3><p>Samostatná ilustrace včetně ručně kresleného textu, který je její součástí.</p><div class="status" id="s-image">Čeká na výsledek</div><div class="actions"><a class="link" href="01_mys_obraz_baseline.ipynb">Notebook</a></div></div>
+    <div class="card"><div class="tag">Režim 02</div><h3>Text</h3><p>Samostatná česká pohádka se zachovaným původním řádkováním.</p><div class="status" id="s-text">Čeká na výsledek</div><div class="actions"><a class="link" href="02_mys_text_baseline.ipynb">Notebook</a></div></div>
+    <div class="card"><div class="tag">Režim 03</div><h3>Obraz + text</h3><p>Ilustrace a samostatná pohádka předané společně, bez předpokladu, že jedno popisuje druhé.</p><div class="status" id="s-combined">Čeká na výsledek</div><div class="actions"><a class="link" href="03_mys_obraz_text_baseline.ipynb">Notebook</a></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Co lze porovnávat</h2>
+  <div class="grid">
+    <div class="card"><h3>Podobnost reprezentací</h3><p>Kosinová podobnost vektorů mezi obrazem, textem a kombinovaným vstupem.</p></div>
+    <div class="card"><h3>Rozdíly mezi médii</h3><p>Co se zachová, co se změní a co se objeví až při společném zpracování.</p></div>
+    <div class="card"><h3>Rozdíly mezi zvířaty</h3><p>Hledání skupin, podobných struktur a odlišných reprezentací napříč fenomény.</p></div>
+    <div class="card"><h3>Výstupy modelu</h3><p>Oddělení pozorování, interpretací, možných významů a nejistot.</p></div>
+  </div>
+  <p><small>Podobnost vektorů je průzkumný ukazatel, nikoli důkaz, že model pochopil význam nebo pravidlo.</small></p>
+</section>
+
+<section>
+  <h2>Výsledky a srovnání</h2>
+  <div class="panel">
+    <div id="runs" class="empty">Zatím nejsou přidány žádné dokončené běhy. Výsledky se zobrazí po zařazení archivů do repozitáře.</div>
+    <div id="matrix-wrap" hidden>
+      <h3>Matice kosinové podobnosti</h3>
+      <p>Počítá se pouze z vektorů stejného modelu a stejné experimentální metodiky.</p>
+      <div id="matrix"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Metodická poznámka</h2>
+  <div class="card">
+    <p>Vektory této fáze vznikají průměrováním skrytých stavů poslední vrstvy modelu. Nejde o specializovaný embeddingový model. Všechny režimy používají stejný model Qwen3-VL-2B-Instruct.</p>
+    <p>Baseline záměrně neobsahuje definice autorského systému, 12 perspektiv ani kruhovou topologii. Ty budou součástí navazující varianty, aby šlo obě fáze porovnat.</p>
+  </div>
+</section>
+
+<footer>
+  SEMANTIC GAP · Embedding Explorer · Autor: Michaela Nováková<br>
+  <small>Datový manifest: <a href="manifest.json">manifest.json</a> · Zdrojový repozitář: <a href="https://github.com/artmisanovak-prog/embeddings">GitHub</a></small>
+</footer>
+</div>
+<script>
+const $ = s => document.querySelector(s);
+function cosine(a,b){
+  let dot=0,na=0,nb=0;
+  const n=Math.min(a.length,b.length);
+  for(let i=0;i<n;i++){dot+=a[i]*b[i];na+=a[i]*a[i];nb+=b[i]*b[i]}
+  return na&&nb?dot/(Math.sqrt(na)*Math.sqrt(nb)):0;
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+async function init(){
+  try{
+    const res=await fetch("./manifest.json",{cache:"no-store"});
+    if(!res.ok) throw new Error("manifest");
+    const data=await res.json();
+    const runs=data.runs||[];
+    const modeMap={image:"s-image",text:"s-text",combined:"s-combined"};
+    for(const r of runs){const el=$("#"+(modeMap[r.mode]||""));if(el){el.textContent="Výsledek přidán";el.classList.add("done")}}
+    if(!runs.length)return;
+    const loaded=[];
+    for(const r of runs){
+      if(!r.embedding)continue;
+      try{const e=await fetch(r.embedding);if(!e.ok)continue;const j=await e.json();if(Array.isArray(j.vector))loaded.push({...r,vector:j.vector})}catch(e){}
+    }
+    $("#runs").outerHTML='<div class="grid">'+runs.map(r=>'<div class="card"><div class="tag">'+esc(r.mode)+'</div><h3>'+esc(r.animal_label||r.animal)+'</h3><p>'+esc(r.label||"Dokončený běh")+'</p><a href="'+esc(r.analysis||"#")+'">Analýza</a> · <a href="'+esc(r.metadata||"#")+'">Metadata</a></div>').join("")+'</div>';
+    if(loaded.length>1){
+      const names=loaded.map(r=>(r.animal_label||r.animal)+" · "+r.mode);
+      let html='<table><thead><tr><th></th>'+names.map(n=>'<th>'+esc(n)+'</th>').join("")+'</tr></thead><tbody>';
+      loaded.forEach((r,i)=>{html+='<tr><th>'+esc(names[i])+'</th>'+loaded.map(q=>'<td>'+cosine(r.vector,q.vector).toFixed(3)+'</td>').join("")+'</tr>'});
+      html+='</tbody></table>';$("#matrix").innerHTML=html;$("#matrix-wrap").hidden=false;
+    }
+  }catch(e){console.warn("Manifest zatím není dostupný.",e)}
+}
+init();
+</script>
+</body></html>
