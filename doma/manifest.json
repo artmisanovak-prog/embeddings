@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "project": "Chceš myš? Slovník mezer",
+  "author": "Michaela Nováková",
+  "phase": "BASELINE",
+  "map_of_meaning": false,
+  "model": "Qwen/Qwen3-VL-2B-Instruct",
+  "planned_phenomena": 40,
+  "pilot_target": "8–9",
+  "modes": [
+    "image",
+    "text",
+    "combined"
+  ],
+  "runs": [],
+  "note": "Výsledky se doplní po dokončení notebooků a zařazení ZIP archivů. Baseline záměrně neobsahuje autorskou MAPU VÝZNAMU ani topologické instrukce."
+}
